@@ -51,7 +51,7 @@ https://www.youtube.com/watch?v=ABFqbY_rmEk
 Directory Structure:
 --------------------
 - Menu.py                : Main application file
-- db/                    : SQL scripts for DB setup
+- db scripts             : SQL scripts for DB setup
 - README.txt             : Project instructions
 - requirements.txt       : Dependency list
 
@@ -62,7 +62,6 @@ Contributors:
 Contact:
 --------
 For questions or support, email: Jaswanth@gmail.com
-
 
 
 Install and setup ollama 
