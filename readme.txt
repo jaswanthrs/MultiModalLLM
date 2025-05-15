@@ -63,7 +63,3 @@ Contact:
 --------
 For questions or support, email: Jaswanth@gmail.com
 
-
-Install and setup ollama 
-setup deepkseek 1.5b 
-https://ollama.com/library/deepseek-r1:1.5b
