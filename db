@@ -1,1 +1,41 @@
 
+CREATE TABLE IF NOT EXISTS public.questions
+(
+    id integer NOT NULL DEFAULT nextval('questions_id_seq'::regclass),
+    topic_name text COLLATE pg_catalog."default" NOT NULL,
+    question text COLLATE pg_catalog."default" NOT NULL,
+    answer text COLLATE pg_catalog."default" NOT NULL,
+    created_by text COLLATE pg_catalog."default" NOT NULL,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT questions_pkey PRIMARY KEY (id)
+)
+
+CREATE TABLE IF NOT EXISTS public.user_answers
+(
+    id integer NOT NULL DEFAULT nextval('user_answers_id_seq'::regclass),
+    question_id integer NOT NULL,
+    user_answer text COLLATE pg_catalog."default",
+    created_at timestamp without time zone,
+    user_id character varying(1000) COLLATE pg_catalog."default",
+    correctness integer,
+    bleu_score double precision,
+    rouge_score double precision,
+    bert_score double precision,
+    final_score double precision,
+    CONSTRAINT user_answers_pkey PRIMARY KEY (id)
+)
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+    id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+    username character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    user_id character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    role character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    is_active boolean DEFAULT true,
+    is_updated boolean DEFAULT false,
+    CONSTRAINT users_pkey PRIMARY KEY (id),
+    CONSTRAINT users_user_id_key UNIQUE (user_id),
+    CONSTRAINT users_username_key UNIQUE (username),
+    CONSTRAINT users_role_check CHECK (role::text = ANY (ARRAY['admin'::character varying, 'student'::character varying]::text[]))
+)
