@@ -61,5 +61,5 @@ Contributors:
 
 Contact:
 --------
-For questions or support, email: Jaswanth@gmail.com
+For questions or support, email: Jaswanthrs@gmail.com
 
